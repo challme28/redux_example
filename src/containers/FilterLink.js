@@ -9,8 +9,10 @@ type OwnProps = {
   filter: string,
 }
 
-const mapStateToProps = (state: State, ownProps: OwnProps): boolean => {
-  return ownProps.filter === state.visibilityFilter
+const mapStateToProps = (state: State, ownProps: OwnProps): {} => {
+  return {
+    active: ownProps.filter === state.visibilityFilter
+  }
 };
 
 const mapDispatchToProps = (dispatch:Function, ownProps: OwnProps) => {

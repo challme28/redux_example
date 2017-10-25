@@ -14,7 +14,7 @@ const Link = ({active, children, onClick}: link) => {
   return (
     <a href="#"
        onClick={e => {
-         e.preventDefault()
+         e.preventDefault();
          onClick()
        }}>{children}
     </a>
