@@ -1,5 +1,4 @@
 // @flow
-
 type Action = {
   +type: string,
   +filter: string,
