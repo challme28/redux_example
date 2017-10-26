@@ -1,9 +1,10 @@
 // @flow
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import TodoList from '../components/TodoList';
-import { actions as ToggleAction } from "../modules/todo/duck";
+import {actions as ToggleAction} from "../modules/todo/duck";
 
-import type todosStateType from '../modules/todo/duck';
+import type { todosStateType }from '../modules/todo/duck';
 
 export type State = {
   +todos: todosStateType,
@@ -23,19 +24,17 @@ const getVisibleTodos = (todos: todosStateType, filter: string): todosStateType 
   }
 };
 
-const mapStateToProps = (state: State): {} => {
+function mapStateToProps(state: State): {} {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
   }
-};
+}
 
-const mapDispatchToProps = (dispatch: Function): {} => {
+function mapDispatchToProps(dispatch: Function): {} {
   return bindActionCreators(ToggleAction, dispatch);
-};
+}
 
-const VisibleTodoList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(TodoList);
-
-export default VisibleTodoList;

@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 type link = {
   +active: boolean,
   +children?: React.Node,
-  +onClick: Function,
+  +setVisibilityFilter: Function,
+  +filter?: string
 };
 
-const Link = ({active, children, onClick}: link) => {
+const Link = ({active, children, setVisibilityFilter, filter}: link) => {
   if (active) {
     return <span>{children}</span>
   }
@@ -16,7 +17,7 @@ const Link = ({active, children, onClick}: link) => {
     <a href="#"
        onClick={e => {
          e.preventDefault();
-         onClick()
+         setVisibilityFilter(filter)
        }}>{children}
     </a>
   )
@@ -25,7 +26,8 @@ const Link = ({active, children, onClick}: link) => {
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  setVisibilityFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired
 };
 
 export default Link;

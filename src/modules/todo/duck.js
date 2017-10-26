@@ -13,10 +13,10 @@ type actionType = {
 export type todosStateType =  Array<{
   +id?: number,
   +text?: string,
-  +completed?: boolean,
+  +completed?: boolean
 }>
 
-let nextTodoId: number = 0;
+let nextTodoId = 0;
 const initialState = [];
 
 //Action creators
@@ -44,7 +44,7 @@ export const actions = {
 //Reducer
 export default function todo(state: todosStateType = initialState, action: actionType): todosStateType{
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return [
         ...state,
         {
@@ -53,7 +53,7 @@ export default function todo(state: todosStateType = initialState, action: actio
           completed: false,
         }
       ];
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       return state.map(todo =>
         (todo.id === action.id)
           ? {...todo, completed: !todo.completed}

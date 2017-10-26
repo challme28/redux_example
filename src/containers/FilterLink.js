@@ -1,8 +1,8 @@
 // @flow
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Link from '../components/Link';
-import { actions as FilterAction } from "../modules/filter/duck";
+import {actions as FilterAction} from "../modules/filter/duck";
 
 import type {State} from './VisibleTodoList';
 
@@ -16,8 +16,8 @@ function mapStateToProps(state: State, ownProps: OwnProps): {} {
   }
 }
 
-function mapDispatchToProps(dispatch: Function) {
-  return bindActionCreators(FilterAction,dispatch);
+function mapDispatchToProps(dispatch: Function): {} {
+  return bindActionCreators(FilterAction, dispatch);
 }
 
 export default connect(

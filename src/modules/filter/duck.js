@@ -10,7 +10,7 @@ type actionType = {
 //Action creators
 export function setVisibilityFilter(filter: string): actionType {
   return {
-    type: 'SET_VISIBILITY_FILTER',
+    type: SET_VISIBILITY_FILTER,
     filter,
   }
 }
@@ -23,7 +23,7 @@ export const actions = {
 //Reducer
 export default function visibilityFilter(state: string = 'SHOW_ALL', action: actionType): ?string {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
+    case SET_VISIBILITY_FILTER:
       return action.filter;
     default:
       return state;

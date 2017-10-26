@@ -9,13 +9,13 @@ export type todoList = {
     +completed: boolean,
     +text: string,
   }>,
-  onTodoClick: Function,
+  toggleTodo: Function,
 }
 
-const TodoList = ({todos, onTodoClick}: todoList) => (
+const TodoList = ({todos, toggleTodo}: todoList) => (
   <ul>
     {todos.map(todo => (
-      <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)}/>
+      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)}/>
     ))}
   </ul>
 );
@@ -28,7 +28,7 @@ TodoList.propTypes = {
       text: PropTypes.string.isRequired
     }).isRequired,
   ).isRequired,
-  onTodoClick: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;
