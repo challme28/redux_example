@@ -1,20 +1,16 @@
 // @flow
 import {connect} from 'react-redux';
-import {toggleTodo} from "../actions/index";
 import TodoList from '../components/TodoList';
+import { actions as ToggleAction } from "../modules/todo/duck";
 
-type Todos = Array<{
-  +id: number,
-  +completed: boolean,
-  +text: string,
-}>
+import type todosStateType from '../modules/todo/duck';
 
 export type State = {
-  +todos: Todos,
+  +todos: todosStateType,
   +visibilityFilter: string,
 }
 
-const getVisibleTodos = (todos: Todos, filter: string): Todos => {
+const getVisibleTodos = (todos: todosStateType, filter: string): todosStateType => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos;
@@ -34,11 +30,7 @@ const mapStateToProps = (state: State): {} => {
 };
 
 const mapDispatchToProps = (dispatch: Function): {} => {
-  return {
-    onTodoClick: id => {
-      dispatch(toggleTodo(id))
-    }
-  }
+  return bindActionCreators(ToggleAction, dispatch);
 };
 
 const VisibleTodoList = connect(

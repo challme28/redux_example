@@ -1,31 +1,26 @@
 // @flow
-import { connect } from 'react-redux';
-import { setVisibilityFilter } from "../actions/index";
+import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
 import Link from '../components/Link';
+import { actions as FilterAction } from "../modules/filter/duck";
 
-import type { State } from './VisibleTodoList';
+import type {State} from './VisibleTodoList';
 
 type OwnProps = {
   filter: string,
 }
 
-const mapStateToProps = (state: State, ownProps: OwnProps): {} => {
+function mapStateToProps(state: State, ownProps: OwnProps): {} {
   return {
     active: ownProps.filter === state.visibilityFilter
   }
-};
+}
 
-const mapDispatchToProps = (dispatch:Function, ownProps: OwnProps) => {
-  return {
-    onClick: () => {
-      dispatch(setVisibilityFilter(ownProps.filter))
-    }
-  }
-};
+function mapDispatchToProps(dispatch: Function) {
+  return bindActionCreators(FilterAction,dispatch);
+}
 
-const FilterLink = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Link);
-
-export default FilterLink;
