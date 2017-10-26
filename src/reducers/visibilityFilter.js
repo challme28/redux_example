@@ -1,15 +1,12 @@
 // @flow
-type Action = {
-  +type: string,
-  +filter: string,
-}
+import type {actionType} from "../reducers/todos";
 
-const visibilityFilter = ( state: string = 'SHOW_ALL', action: Action) => {
+const visibilityFilter = ( state: string = 'SHOW_ALL', action: actionType): ?string => {
   switch (action.type){
     case 'SET_VISIBILITY_FILTER':
       return action.filter;
     default:
-      return state
+      return state;
   }
 };
 

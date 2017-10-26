@@ -1,17 +1,18 @@
 // @flow
-type State =  Array<{
-    +id: number,
-    +text: string,
-    +completed: boolean,
+type todosStateType =  Array<{
+    +id?: number,
+    +text?: string,
+    +completed?: boolean,
   }>
 
-type Action = {
+export type actionType = {
   +type: string,
-  +id: number,
-  +text: string,
+  +id?: number,
+  +text?: string,
+  +filter?: string,
 }
 
-const todos = (state: State = [], action: Action) => {
+const todos = (state: todosStateType = [], action: actionType): todosStateType => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
