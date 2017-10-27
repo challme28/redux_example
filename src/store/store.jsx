@@ -1,8 +1,8 @@
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 import rootReducer from '../modules/index';
-import {todosStateType} from "../modules/todo/duck";
+import { todosStateType } from "../modules/todo/duck";
 
-const configureStore = (initialState?: todosStateType) =>{
+const configureStore = (initialState?: todosStateType) => {
   return createStore(rootReducer, initialState);
 };
 

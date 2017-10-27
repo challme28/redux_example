@@ -10,7 +10,7 @@ type actionType = {
   +filter?: string,
 }
 
-export type todosStateType =  Array<{
+export type todosStateType = Array<{
   +id?: number,
   +text?: string,
   +completed?: boolean
@@ -27,7 +27,7 @@ export function addTodo(text: string): actionType {
   }
 }
 
-export function toggleTodo(id: number): actionType{
+export function toggleTodo(id: number): actionType {
   return {
     type: TOGGLE_TODO,
     id,
@@ -42,7 +42,7 @@ export const actions = {
 };
 
 //Reducer
-export default function todo(state: todosStateType = initialState, action: actionType): todosStateType{
+export default function todo(state: todosStateType = initialState, action: actionType): todosStateType {
   switch (action.type) {
     case ADD_TODO:
       return [
