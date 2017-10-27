@@ -7,7 +7,7 @@ import {actions as FilterAction} from "../duck";
 import type {State} from '../../todo/containers/VisibleTodoList';
 
 type OwnProps = {
-  filter: string,
+  +filter: string,
 }
 
 function mapStateToProps(state: State, ownProps: OwnProps): {} {

@@ -1,6 +1,7 @@
 // @flow
 //Actions
 const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+const DEFAULT_STATE = 'SHOW_ALL';
 
 type actionType = {
   +type: string,
@@ -21,7 +22,7 @@ export const actions = {
 };
 
 //Reducer
-export default function visibilityFilter(state: string = 'SHOW_ALL', action: actionType): ?string {
+export default function visibilityFilter(state: string = DEFAULT_STATE, action: actionType): ?string {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;

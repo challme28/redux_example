@@ -3,9 +3,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 type todo = {
-  onClick: Function,
-  completed: boolean,
-  text: string,
+  +onClick: Function,
+  +completed: boolean,
+  +text: string,
 }
 
 const Todo = ({onClick, completed, text}: todo) => (

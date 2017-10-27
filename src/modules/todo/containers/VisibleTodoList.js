@@ -22,7 +22,7 @@ export function getVisibleTodos (todos: todosStateType, filter: string): todosSt
     default:
       return todos;
   }
-};
+}
 
 function mapStateToProps(state: State): {} {
   return {
