@@ -4,8 +4,7 @@ import AddTodo from './modules/todo/containers/AddTodo'
 import VisibleTodoList from './modules/todo/containers/VisibleTodoList'
 
 
-export default class App extends React.Component {
-  render() {
+const App=()=>{
     return (
       <div>
         <AddTodo/>
@@ -13,5 +12,6 @@ export default class App extends React.Component {
         <Footer/>
       </div>
     );
-  }
-}
+};
+
+export default App;
