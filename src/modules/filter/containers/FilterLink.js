@@ -2,9 +2,9 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Link from '../components/Link';
-import {actions as FilterAction} from "../modules/filter/duck";
+import {actions as FilterAction} from "../duck";
 
-import type {State} from './VisibleTodoList';
+import type {State} from '../../todo/containers/VisibleTodoList';
 
 type OwnProps = {
   filter: string,

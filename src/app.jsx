@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from './components/Footer'
-import AddTodo from './containers/AddTodo'
-import VisibleTodoList from './containers/VisibleTodoList'
+import Footer from './modules/filter/components/Footer'
+import AddTodo from './modules/todo/containers/AddTodo'
+import VisibleTodoList from './modules/todo/containers/VisibleTodoList'
 
 
 export default class App extends React.Component {
