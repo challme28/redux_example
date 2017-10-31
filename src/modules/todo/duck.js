@@ -1,4 +1,5 @@
 // @flow
+import Rx from 'rxjs';
 //Actions
 const ADD_TODO = 'ADD_TODO';
 const TOGGLE_TODO = 'TOGGLE_TODO';
@@ -61,4 +62,15 @@ export default function todo(state: todosStateType = initialState, action: actio
     default:
       return state;
   }
+}
+
+//Epic
+export function todoEpic(action$: any) {
+  return action$.ofType(ADD_TODO)
+    .mergeMap((action) =>
+        Rx.Observable.of(action.text)
+          .delay(1000)
+          .map(text => addTodo(text))
+      //.catch(error => Rx.Observable.of(addTodoError(error)))
+    );
 }
