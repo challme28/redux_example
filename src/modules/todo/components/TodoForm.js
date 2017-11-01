@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const TodoForm = ({addTodo}) => {
+const TodoForm = ({addTodoAsync}) => {
   let input;
 
   return (
@@ -12,7 +12,7 @@ const TodoForm = ({addTodo}) => {
           if (!input.value.trim()) {
             return
           }
-          addTodo(input.value);
+          addTodoAsync(input.value);
           input.value = '';
         }}>
         <input
